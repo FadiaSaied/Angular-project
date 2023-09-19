@@ -1,0 +1,107 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="mb-3">
+    <label for="InputName" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="InputName"
+      aria-describedby="NameHelp"
+      formControlName="Name"
+    />
+
+    <div
+      *ngIf="
+        registerForm.controls['Name'].touched &&
+        registerForm.controls['Name'].invalid
+      "
+      id="NameHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['Name'].errors?.['required']">
+        this filed is required
+      </small>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="InputEmail" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="InputEmail"
+      aria-describedby="emailHelp"
+      formControlName="emailName"
+    />
+
+    <div
+      *ngIf="
+        registerForm.controls['emailName'].touched &&
+        registerForm.controls['emailName'].invalid
+      "
+      id="emailHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['emailName'].errors?.['required']">
+        this filed is required
+      </small>
+      <small *ngIf="registerForm.controls['emailName'].errors?.['pattern']">
+        enter vaild email
+      </small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="InputUserName" class="form-label">User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="InputUserName"
+      aria-describedby="UserNameHelp"
+      formControlName="UserName"
+    />
+
+    <div
+      *ngIf="
+        registerForm.controls['UserName'].touched &&
+        registerForm.controls['UserName'].invalid
+      "
+      id="UserNameHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['UserName'].errors?.['required']">
+        this filed is required
+      </small>
+      <small *ngIf="registerForm.controls['UserName'].errors?.['pattern']">
+        enter vaild usename
+      </small>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="InputPassword" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="InputPassword"
+      aria-describedby="passwordHelp"
+      formControlName="Password"
+    />
+    <div
+      *ngIf="
+        registerForm.controls['Password'].touched &&
+        registerForm.controls['Password'].invalid
+      "
+      id="passwordHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="registerForm.controls['Password'].errors?.['required']">
+        this filed is required
+      </small>
+      <small *ngIf="registerForm.controls['Password'].errors?.['pattern']">
+        enter vaild password
+      </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Register</button>
+
+  <p>Dont have account <a href="./login" class="text-dark">Login</a></p>
+</form>

@@ -1,0 +1,16 @@
+
+ <div class="card h-100">
+    <img [src]="product.thumbnail" class="card-img-top"  (click)="goTODetails(product.id)" >
+    <div class="card-body">
+      <h5 class="card-title">{{product.title }}</h5>
+      <p class="card-text" [ngClass]="{ 'text-success' : product.stock  , 'text-danger' : !product.stock}"> {{product.stock | stock }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-body-secondary"> Price : {{product.price | currency: 'EGP' }}</small>
+    </div>
+    <button class="btn btn-success" (click)="increaseCounter()">Add to cart</button>
+  </div> 
+
+
+ 
+  

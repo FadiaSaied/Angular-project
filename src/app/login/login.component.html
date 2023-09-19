@@ -1,0 +1,59 @@
+
+<div class="container">
+<form #loginform="ngForm" (ngSumbit)="submitLogin(loginform)">
+  <div class="mb-3">
+    <label for="InputEmail" class="form-label">Email</label>
+    <input 
+      type="email"
+      class="form-control"
+      id="InputEmail"
+      aria-describedby="emailHelp"
+      name="emailname"
+      ngModel
+      #emailname="ngModel"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      required
+      minlength="5"
+    />
+
+    <div
+      *ngIf="emailname.touched && emailname.invalid"
+      id="emailHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="emailname.errors?.['required']">
+        this filed is required
+      </small>
+      <small *ngIf="emailname.errors?.['pattern']">
+        enter vaild email
+      </small>
+      <small *ngIf="emailname.errors?.['minlength']"> minlength = 5 </small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="InputPassword" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="InputPassword"
+      aria-describedby="passwordHelp"
+      name="passwordname"
+      ngModel
+      #passwordname="ngModel"
+      required
+    />
+    <div
+      *ngIf="passwordname.touched && passwordname.invalid"
+      id="passwordHelp"
+      class="form-text text-danger"
+    >
+      <small *ngIf="passwordname.errors?.['required']">
+        this filed is required
+      </small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">login</button>
+</form>
+</div>
+<p>Dont have account <a href ="register" class="text-dark">Register</a></p>
